@@ -30,14 +30,7 @@ LOCAL_MODULE := libshims_get_process_name
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
 
-# RIL
-include $(CLEAR_VARS)
-LOCAL_SRC_FILES := sensor.cpp
-LOCAL_SHARED_LIBRARIES := libsensor
-LOCAL_MODULE := libshim_ril
-LOCAL_MODULE_TAGS := optional
-include $(BUILD_SHARED_LIBRARY)
-
+# QSAP
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := libqsap_shim.c
 LOCAL_SHARED_LIBRARIES := libqsap_sdk liblog
@@ -45,4 +38,12 @@ LOCAL_C_INCLUDES := $(TOP)/system/qcom/softap/sdk
 LOCAL_MODULE := libqsap_shim
 LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
+
+# RIL
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := sensor.cpp
+LOCAL_SHARED_LIBRARIES := libsensor
+LOCAL_MODULE := libshim_ril
+LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
