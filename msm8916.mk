@@ -84,8 +84,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl-legacy \
     camera.msm8916 \
     libc_util \
-    libshims_camera \
-    Snap
+    libshims_camera
 
 # Display
 PRODUCT_PACKAGES += \
@@ -239,4 +238,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 $(call inherit-product-if-exists, vendor/motorola/msm8916-common/msm8916-common-vendor.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
